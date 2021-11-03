@@ -7,7 +7,7 @@
 	<?php echo form_open('main/lulusan'); ?>
 	<?php echo
 
-		form_input('keyword', '', 'placeholder = "Cari data berdasarkan nisn, nama, tahun lulus, jenis kelamin, nomor ijazah, nomor SKHUN" class = "form-control" data-aos="zoom-out" data-aos-duration="500" autocomplete="off"');
+		form_input('keyword', '', 'placeholder = "Cari data berdasarkan nim, nama, tahun lulus, jenis kelamin, nomor ijazah, nomor SKHUN" class = "form-control" data-aos="zoom-out" data-aos-duration="500" autocomplete="off"');
 	?>
 	<center>
 		<?php echo form_submit('Cari', 'cari', array('class' => 'btn btn-default waves-effect', 'data-aos' => 'zoom-out', 'data-aos-duration' => '500')); ?>

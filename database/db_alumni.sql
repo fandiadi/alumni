@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Nov 2021 pada 00.15
+-- Waktu pembuatan: 03 Nov 2021 pada 06.01
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 5.6.40
 
@@ -43,7 +43,7 @@ CREATE TABLE `event` (
 
 INSERT INTO `event` (`id`, `nama_event`, `event_title`, `event_slug`, `deskripsi`, `tanggal_posting`) VALUES
 (1, 'Event', 'Event 1', 'event-1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2021-10-31 09:28:45'),
-(2, 'event', 'Event 2', 'event-2', 'event kedua', '2021-10-31 09:31:18');
+(2, 'event', 'Event 2', 'event-2', 'event keduaa', '2021-11-01 00:53:01');
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ CREATE TABLE `lowongan` (
 
 INSERT INTO `lowongan` (`id`, `nama_perusahaan`, `job_title`, `job_slug`, `deskripsi`, `tanggal_posting`) VALUES
 (1, 'PT. suka maju', 'lowongan pt suka maju', 'lowongan-pt-suka-maju', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2021-10-31 09:27:25'),
-(2, 'perusahaan A', 'lowongan perusahaan A', 'lowongan-perusahaan-a', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2021-10-31 09:26:50');
+(2, 'perusahaan A', 'lowongan perusahaan A', 'lowongan-perusahaan-a', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum', '2021-11-01 00:52:49');
 
 -- --------------------------------------------------------
 
@@ -152,7 +152,7 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id`, `id_user`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `nim`, `alamat`, `no_telp`, `nama_ayah`, `pekerjaan_ayah`, `nama_ibu`, `pekerjaan_ibu`, `tahun_masuk`, `tahun_lulus`, `no_ijazah`, `no_skhun`) VALUES
-(1, 4, 'Laki-Laki', 'Bandung', '1999-04-17', '3411171165', 'gbr2', '085233715185', 'Giri', 'PEGAWAI NEGERI SIPIL', 'Fitri', 'BELUM/TIDAK BEKERJA', '2017', '2018', '120371207301782', '1928731927319237'),
+(1, 4, 'Laki-Laki', 'Bandung', '1999-04-17', '3411171165', 'gbr2', '085233715185', 'A', 'PEGAWAI NEGERI SIPIL', 'B', 'BELUM/TIDAK BEKERJA', '2017', '2018', '120371207301782', '1928731927319237'),
 (3, 5, 'Laki-Laki', 'Bandung', '1999-01-01', '3411171161', 'cipageran', '085238123123', '-', 'BELUM/TIDAK BEKERJA', '-', 'BELUM/TIDAK BEKERJA', '2017', '2010', '-', '-');
 
 -- --------------------------------------------------------
@@ -299,6 +299,8 @@ CREATE TABLE `status_alumni` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_user` int(10) UNSIGNED NOT NULL,
   `status` varchar(50) NOT NULL,
+  `jangka_waktu` varchar(50) NOT NULL,
+  `status_ilmu` varchar(50) NOT NULL,
   `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -306,10 +308,11 @@ CREATE TABLE `status_alumni` (
 -- Dumping data untuk tabel `status_alumni`
 --
 
-INSERT INTO `status_alumni` (`id`, `id_user`, `status`, `deskripsi`) VALUES
-(1, 4, 'Belum / tidak bekerja', 'nganggur bos'),
-(3, 4, 'Bekerja sambil kuliah', 'asd'),
-(4, 5, 'Bekerja', 'proplayer');
+INSERT INTO `status_alumni` (`id`, `id_user`, `status`, `jangka_waktu`, `status_ilmu`, `deskripsi`) VALUES
+(3, 4, 'Bekerja sambil kuliah', '', '', 'asd'),
+(4, 5, 'Bekerja', '', '', 'rty'),
+(5, 4, 'Belum / tidak bekerja', '', '', 'asdasdasd'),
+(6, 4, 'Belum / tidak bekerja', '', '', 'asdasdasd');
 
 -- --------------------------------------------------------
 
@@ -361,10 +364,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$08$tXgzdrIacZ1OrTByIPY7CuOTFhKjrj7OwpzDG/hYmC8GdJURLPMIe', '', 'admin@admin.com', '', '-N-QzN8O8CuLVErLYKUPYOb87f501b797d0c121a', 1545139776, 'Ja2PqmrM2A5/.Jo2qDaU9.', 1268889823, 1635689617, 1, 'Admin', 'istrator'),
+(1, '127.0.0.1', 'administrator', '$2y$08$tXgzdrIacZ1OrTByIPY7CuOTFhKjrj7OwpzDG/hYmC8GdJURLPMIe', '', 'admin@admin.com', '', '-N-QzN8O8CuLVErLYKUPYOb87f501b797d0c121a', 1545139776, 'Ja2PqmrM2A5/.Jo2qDaU9.', 1268889823, 1635914637, 1, 'Admin', 'istrator'),
 (2, '::1', 'user1@user.com', '$2y$08$SiQSugQF8NduDBBxvOCOw.UXVRJb3zBo./qzWQ7tlrnwSmnZrpUF6', NULL, 'user1@user.com', NULL, NULL, NULL, NULL, 1545149959, 1546930495, 1, 'user 1', 'user'),
 (3, '::1', 'user2@user.com', '$2y$08$cjmwxcIhPuhcsORwO0wsJOxb5U0ZH11ds.y3FK61obTd/2lli6oau', NULL, 'user2@user.com', NULL, NULL, NULL, NULL, 1545287957, 1546070378, 1, 'user 2', 'user'),
-(4, '::1', 'fandiadi30@gmail.com', '$2y$08$AG.ZEt5VA4bBgaBaX256XuqwhP.xv1xcKDhJidYWKxH7fH64lDDzi', NULL, 'fandiadi30@gmail.com', NULL, NULL, NULL, 'axfyrIJAF75Szlvad2NFle', 1635614525, 1635722098, 1, 'Fandi', 'Adi Prasetio'),
+(4, '::1', 'fandiadi30@gmail.com', '$2y$08$AG.ZEt5VA4bBgaBaX256XuqwhP.xv1xcKDhJidYWKxH7fH64lDDzi', NULL, 'fandiadi30@gmail.com', NULL, 'DWP0NiulLDg6gTXhkeuaYO817a3a8260e1a41468', 1635911197, 'axfyrIJAF75Szlvad2NFle', 1635614525, 1635914808, 1, 'Fandi', 'Adi Prasetio'),
 (5, '::1', 'wil@hans.com', '$2y$08$SdftLZ2n.GBrjUW7bVGXcOHQsm8CurTZiINieadhANTZ1SDoJ/BEW', NULL, 'wil@hans.com', NULL, NULL, NULL, NULL, 1635673933, 1635673985, 1, 'Willy', 'Hanafi');
 
 -- --------------------------------------------------------
@@ -529,7 +532,7 @@ ALTER TABLE `referensi_tahun`
 -- AUTO_INCREMENT untuk tabel `status_alumni`
 --
 ALTER TABLE `status_alumni`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `testimoni`

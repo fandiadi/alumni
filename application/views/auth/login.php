@@ -28,5 +28,8 @@
 <div class="row m-t-20 m-b--5 align-center">
 	<a href="forgot_password"><?php echo lang('login_forgot_password'); ?></a>
 </div>
+<div class="row-xs-10 p-t-20 align-center">
+	<a class="btn btn-outline-primary" href="<?= site_url('') ?>" role="button">Back to Home</a>
+</div>
 </div>
 <?php echo form_close(); ?>
