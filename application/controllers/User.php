@@ -341,6 +341,7 @@ class User extends CI_Controller
         if (!$id || empty($id)) {
             redirect('user', 'refresh');
         }
+        //update
 
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin()) {
             redirect('auth', 'refresh');
