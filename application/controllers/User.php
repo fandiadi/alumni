@@ -3,7 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * class user
- * dikembangkan Andhika Putra Pratama.
+ 
  */
 class User extends CI_Controller
 {

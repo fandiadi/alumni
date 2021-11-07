@@ -189,6 +189,9 @@ $uri_string = $this->uri->uri_string();
 						<li <?php echo $segment1 == 'rekapitulasi' ? 'class="active"' : ''; ?>>
 							<?php echo anchor('rekapitulasi', '<i class="material-icons">report</i><span>Rekapitulasi Data</span>'); ?>
 						</li>
+						<li <?php echo $segment1 == 'import' ? 'class="active"' : ''; ?>>
+							<?php echo anchor('import', '<i class="material-icons">report</i><span>import Data</span>'); ?>
+						</li>
 						<li <?php echo $segment1 == 'user' ? 'class="active"' : ''; ?>>
 							<a href="javascript:void(0);" class="menu-toggle">
 								<i class="material-icons">people</i>
